@@ -9,7 +9,11 @@ Many thanks to Oros script and netblue3 tutorial for this
 #		We'll call it :  Mobius Linux 
 #
 ########################################################################
-
+: '
+TODO ==>> optimize the installation for all linux distro
+TODO ==>> add custom splash image
+TODO ==>> add gui, development and network tools.
+'
 ###Vars ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 INITPATH=$(pwd)
 DISTNAME='Mobius'
