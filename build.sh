@@ -29,16 +29,15 @@ help() {
 	\n$0 should be run as root \n"
 	exit 0
 }
+
 verifyTools(){
-	#tools=('xorriso' 'debootstrap'  'mksquashfs' 'live-build') #need to check if there will be larger list of tools.
-	chkTool=$(updatedb;locate xorriso >> /dev/null;echo $?)
-	if [ $chkTool -eq 0 ];then
-		echo "all needed tools  are located"
-	else
-		echo "you need to install xorriso"
-		 exit 1986
-	fi
+	for  i in 'xorriso' 'debootstrap'  'mksquashfs' 'live-build';do #need to check if there will be larger list of tools.
+		if [ ! $(which $i) ];then
+			apt-get install $i -y
+		fi
+	done
 	}
+	
 cleanChroot(){
 	if [ -d $INITPATH/custom_conf ]; then
 		cp -r $INITPATH/custom_conf/* chroot/
